@@ -1,1 +1,2 @@
-clang-format -i *.c *.h -style=file --verbose
+find . | grep '.*\.[ch]$' | xargs clang-format --verbose -style=file -i 
+# End
