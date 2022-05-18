@@ -11,7 +11,7 @@ __WEAK __INLINE void CRITICAL_REGION_EXIT(void) {
 }
 
 typedef struct {
-	app_sched_event_handler_t handler;
+	fpevt_h handler;
 	uevt_t event_data;
 } event_t;
 
@@ -37,7 +37,7 @@ void app_sched_init(void) {
 	m_queue_start_index = 0;
 }
 
-uint32_t app_sched_event_put(uevt_t const* p_event_data, app_sched_event_handler_t handler) {
+uint32_t app_sched_event_put(uevt_t const* p_event_data, fpevt_h handler) {
 	uint32_t err_code;
 	uint16_t event_index = 0xFFFF;
 
@@ -69,7 +69,7 @@ void app_sched_execute(void) {
 		uint16_t event_index = m_queue_start_index;
 
 		uevt_t* p_event_data;
-		app_sched_event_handler_t event_handler;
+		fpevt_h event_handler;
 
 		p_event_data = &(m_sched_queue[event_index].event_data);
 		event_handler = m_sched_queue[event_index].handler;

@@ -11,10 +11,8 @@ extern "C" {
 
 #define SCHED_QUEUE_LENGTH (32)
 
-typedef void (*app_sched_event_handler_t)(uevt_t* p_event_data);
-
 void app_sched_init(void);
-uint32_t app_sched_event_put(uevt_t const* p_event_data, app_sched_event_handler_t handler);
+uint32_t app_sched_event_put(uevt_t const* p_event_data, fpevt_h handler);
 void app_sched_execute(void);
 
 #ifdef __cplusplus

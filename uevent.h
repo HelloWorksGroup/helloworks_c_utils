@@ -5,7 +5,7 @@
 #include <stdint.h>
 #include <string.h>
 
-// #include "compiler_abstraction.h"
+#include "compiler_abstraction.h"
 
 typedef struct {
 	uint16_t evt_id;
@@ -14,9 +14,10 @@ typedef struct {
 
 typedef void (*fpevt_h)(uevt_t*);
 
+#include "scheduler.h"
 #include "platform.h"
-#ifndef LOG_RAW(x...)
-	#define LOG_RAW(x...)
+#ifndef LOG_RAW
+	#define LOG_RAW(...)
 #endif
 
 void user_event_send(uevt_t evt, fpevt_h event_handler);

@@ -232,8 +232,8 @@ uint8_t dmyDec(sDATE* date, uint8_t s) {
 #define SEC_P_DAY (86400)
 #define SEC_P_NORMAL_YEAR (31536000)
 #define SEC_P_LEAP_YEAR (31622400)
-#define UNIX_2000_UTC (946684800)
-#define UNIX_2100_UTC (4102444800)
+#define UNIX_2000_UTC (946684800ul)
+#define UNIX_2100_UTC (4102444800ul)
 uint32_t unix_timestamp(uint8_t sec, uint8_t min, uint8_t hrs, uint8_t day, uint8_t mon, uint16_t year) {
 	uint16_t y = 2000 + year - 1; // year var
 	uint32_t unix = UNIX_2000_UTC;
