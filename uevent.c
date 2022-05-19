@@ -50,7 +50,7 @@ void user_event_handler_regist(fpevt_h func) {
 }
 
 void user_event_handler_unregist(fpevt_h func) {
-	for(uint8_t i = 0; i < sizeof(evt_handler_array) / sizeof(fpevt_h); i++) {
+	for(uint8_t i = 0; i < EVT_HANDLER_LENGTH; i++) {
 		if(evt_handler_array[i] == func) {
 			evt_handler_array[i] = NULL;
 			return;
@@ -59,7 +59,7 @@ void user_event_handler_unregist(fpevt_h func) {
 }
 
 void user_event_array_dispatcher(uevt_t evt) {
-	for(uint8_t i = 0; i < sizeof(evt_handler_array) / sizeof(fpevt_h); i++) {
+	for(uint8_t i = 0; i < EVT_HANDLER_LENGTH; i++) {
 		if(evt_handler_array[i] != NULL) {
 			// LOG_RAW("dispatch %04x to array[%d]=%x\n",evt.evt_id,i,evt_handler_array[i]);
 			(*(evt_handler_array[i]))(&evt);
