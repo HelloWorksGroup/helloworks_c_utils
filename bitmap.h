@@ -28,8 +28,10 @@ typedef enum BLENDMODE {
 	ERASE,
 	AND,
 	NOT,
-	XOR,  // 异或
-	XNOR, // 同或
+	XOR,   // 异或
+	XNOR,  // 同或
+	FILL,  // 填充
+	CLEAR, // 清除
 } eBlendMode;
 
 #endif
