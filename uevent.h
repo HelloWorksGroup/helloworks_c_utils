@@ -16,9 +16,6 @@ typedef void (*fpevt_h)(uevt_t*);
 
 #include "scheduler.h"
 #include "platform.h"
-#ifndef LOG_RAW
-	#define LOG_RAW(...)
-#endif
 
 void user_event_send(uevt_t evt, fpevt_h event_handler);
 void user_event_broadcast(uevt_t evt);
